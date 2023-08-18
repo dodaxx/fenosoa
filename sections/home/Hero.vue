@@ -1,18 +1,98 @@
-<script setup></script>
+<script setup>
+import { gsap } from 'gsap';
+
+onMounted(() => {
+  const everything = document.querySelectorAll('.everything-you> span');
+  const imagine = document.querySelectorAll('.imagine> span');
+  const real = document.querySelectorAll('.real> span');
+  const imgHero = document.querySelector('.image-hero');
+  const designer = document.querySelector('.designer > p');
+  const front = document.querySelector('.front');
+
+  const tl = gsap.timeline();
+
+  tl.fromTo(imgHero, {
+    opacity: 0
+  }, {
+    opacity: 1,
+    duration: 1,
+    ease: "power4.out",
+    delay: 1,
+  });
+
+  tl.fromTo([everything, imagine, real], {
+    y: 100,
+    opacity: 0
+  },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power4.out",
+      delay: 0.1,
+      // skewY: 7,
+      stagger: {
+        amount: 0.3
+      }
+    }
+  );
+  tl.fromTo(designer, {
+    opacity: 0,
+    y: 100
+  }, {
+    y: 0,
+    opacity: 1,
+    duration: 0.5,
+    ease: "power4.out",
+    delay: 0.1,
+  });
+  tl.fromTo(front, {
+    opacity: 0
+  }, {
+    opacity: 1,
+    duration: 0.4,
+    ease: "power4.out",
+    delay: 0.1,
+  });
+  //   tl.fromTo([real], {
+  //     y: 100,
+  //     opacity: 0
+  //   }, {
+  //     y: 0,
+  //     opacity: 1,
+  //     duration: 0.6,
+  //     ease: "power4.out",
+  //     delay: 0.1,
+  //     // skewY: 7,
+  //     stagger: {
+  //       amount: 0.3
+  //     }
+  //   });
+});
+
+
+
+</script>
 <template>
   <CommonAppGrid class-content="hero">
     <div class="content">
       <h1>
-        <span v-for="i in 'EVERYTHING'">{{ i }}</span>
-        <span v-for="i in ' you'" class="italic">{{ i }}</span><br>
-        <span v-for="i in 'CAN IMAGINE'">{{ i }}</span><br>
-        <span v-for="i in 'IS REAL.'">{{ i }}</span>
+        <span class="everything-you">
+          <span v-for="i in 'EVERYTHING'" class="everything-content">{{ i }}</span>
+          <span v-for="i in ' you'" class="italic">{{ i }}</span><br>
+        </span>
+        <span class="imagine">
+          <span v-for="i in 'CAN IMAGINE'" class="imagine-content">{{ i }}</span><br>
+        </span>
+        <span class="real">
+          <span v-for="i in 'IS REAL.'" class="real-content">{{ i }}</span>
+        </span>
       </h1>
       <div class="bt">
         <div class="front">
           <span v-for="i in 'FRONT-END DEVELOPER'">{{ i }}</span>
         </div>
-        <img src="@/assets/images/Hero/hero-img.png" alt="">
+        <img src="@/assets/images/Hero/hero-img.png" alt="" class="image-hero">
         <div class="designer">
           <p>WEB DESIGNER</p>
         </div>
@@ -40,8 +120,21 @@
     font-size: 6.3vw;
     font-family: 'wp';
     line-height: 5.5vw;
+    overflow: hidden;
+
+
 
     span {
+
+      &.everything-you,
+      &.imagine,
+      &.real {
+        display: flex;
+        align-items: end;
+        overflow: hidden;
+        gap: 2px;
+      }
+
 
       &.italic {
         font-family: 'sd';
@@ -61,7 +154,7 @@
       font-size: 2.3vw;
       bottom: 2px;
       right: -4%;
-
+      overflow: hidden;
     }
 
     .designer {
@@ -69,6 +162,7 @@
       transform: rotate(90deg);
       left: -10.5%;
       bottom: 10%;
+      overflow: hidden;
 
       p {
         font-size: 2.3vw;

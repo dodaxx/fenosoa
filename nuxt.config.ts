@@ -17,5 +17,8 @@ export default defineNuxtConfig({
       path: '~/sections',
       extensions: ['.vue'],
     },
-  ]
+  ],
+  build: {
+    transpile: ["gsap"],
+  },
 })
