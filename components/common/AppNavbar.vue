@@ -20,7 +20,7 @@ nav {
   @apply flex justify-between items-center pl-4 pr-4 fixed;
   font-family: 'wp';
   width: 100%;
-  padding: 30px 16px 0 16px;
+  padding: 30px 32px 0 32px;
 }
 
 
