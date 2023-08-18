@@ -17,19 +17,16 @@
 </template>
 <style scoped lang="scss">
 nav {
-  @apply grid grid-cols-12 gap-5 pl-4 pr-4 fixed;
+  @apply flex justify-between items-center pl-4 pr-4 fixed;
   font-family: 'wp';
   width: 100%;
-  padding: 40px 16px 0 16px;
+  padding: 30px 16px 0 16px;
 }
 
-.logo {
-  @apply col-span-1;
-  width: 100%;
-}
+
 
 .wrapper {
-  @apply col-span-1 flex justify-center items-center;
+  @apply flex justify-center items-center;
   font-size: 30px;
 
   .reverse {
@@ -41,7 +38,7 @@ nav {
 }
 
 .menu {
-  @apply col-start-12;
+  /* @apply col-start-12; */
   font-size: 25px;
 }
 </style>
