@@ -1,19 +1,23 @@
 <script setup>
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
+  const hero = document.querySelector('.hero');
   const everything = document.querySelector('.everything-you');
   const everythingContent = document.querySelectorAll('.everything-you> span');
-  const imagine = document.querySelectorAll('.imagine> span');
-  const real = document.querySelectorAll('.real> span');
+  const imagine = document.querySelectorAll('.imagine');
+  const imagineContent = document.querySelectorAll('.imagine> span');
+  const real = document.querySelectorAll('.real');
+  const realContent = document.querySelectorAll('.real> span');
   const imgHero = document.querySelector('.image-hero');
-  const designer = document.querySelector('.designer > p');
+  const designer = document.querySelector('.designer');
+  const designerContent = document.querySelector('.designer > p');
   const front = document.querySelector('.front');
-
   const tl = gsap.timeline();
 
-
-  tl.fromTo([everythingContent, imagine, real], {
+  tl.fromTo([everythingContent, imagineContent, realContent], {
     y: 100,
     opacity: 0,
     filter: 'blur(4px)'
@@ -34,7 +38,6 @@ onMounted(() => {
       }
     },
   );
-
   tl.fromTo(imgHero, {
     opacity: 0,
     filter: 'blur(4px)'
@@ -47,8 +50,7 @@ onMounted(() => {
     filter: 'blur(0px)'
 
   });
-
-  tl.fromTo(designer, {
+  tl.fromTo(designerContent, {
     opacity: 0,
     y: 100,
     filter: 'blur(4px)',
@@ -75,8 +77,27 @@ onMounted(() => {
 
   });
 
-});
+  gsap.to([everything, imagine, real, imgHero, designer, front], {
+    y: -400,
+    scrollTrigger: {
+      trigger: hero,
+      ease: "power4.out",
+      start: "5% top",
+      end: "100% top",
+      scrub: 2,
+    },
+  });
+  gsap.to(imgHero, {
+    y: -200,
+    scrollTrigger: {
+      trigger: hero,
+      start: "5% top",
+      end: "100% top",
+      scrub: 2,
+    },
+  });
 
+});
 
 
 </script>

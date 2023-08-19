@@ -1,4 +1,21 @@
-<script setup></script>
+<script setup>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+  const section = document.getElementsByClassName('what-section');
+  gsap.to(section, {
+    backgroundColor: '#F9DCC5',
+    scrollTrigger: {
+      trigger: section,
+      start: "top 45%",
+      end: "top 45%",
+      scrub: 2,
+    },
+  })
+})
+</script>
 <template>
   <CommonAppGrid class-content="what-section">
     <div class="lft">
@@ -22,7 +39,7 @@
 </template>
 <style scoped lang="scss">
 .what-section {
-  background-color: #F9DCC5;
+  background-color: #FF5835;
   padding-top: 75px;
   height: 115vh;
   padding-bottom: 53px;
