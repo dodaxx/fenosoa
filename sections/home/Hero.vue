@@ -2,7 +2,8 @@
 import { gsap } from 'gsap';
 
 onMounted(() => {
-  const everything = document.querySelectorAll('.everything-you> span');
+  const everything = document.querySelector('.everything-you');
+  const everythingContent = document.querySelectorAll('.everything-you> span');
   const imagine = document.querySelectorAll('.imagine> span');
   const real = document.querySelectorAll('.real> span');
   const imgHero = document.querySelector('.image-hero');
@@ -11,63 +12,69 @@ onMounted(() => {
 
   const tl = gsap.timeline();
 
-  tl.fromTo(imgHero, {
-    opacity: 0
-  }, {
-    opacity: 1,
-    duration: 1,
-    ease: "power4.out",
-    delay: 1,
-  });
 
-  tl.fromTo([everything, imagine, real], {
+  tl.fromTo([everythingContent, imagine, real], {
     y: 100,
-    opacity: 0
+    opacity: 0,
+    filter: 'blur(4px)'
   },
     {
       y: 0,
       opacity: 1,
       duration: 0.8,
       ease: "power4.out",
-      delay: 0.1,
+      delay: 3,
+      filter: 'blur(0px)',
       // skewY: 7,
       stagger: {
         amount: 0.3
+      },
+      onComplete: () => {
+        everything.style.overflow = 'visible';
       }
-    }
+    },
   );
+
+  tl.fromTo(imgHero, {
+    opacity: 0,
+    filter: 'blur(4px)'
+
+  }, {
+    opacity: 1,
+    duration: 1,
+    ease: "power4.out",
+    delay: 0.5,
+    filter: 'blur(0px)'
+
+  });
+
   tl.fromTo(designer, {
     opacity: 0,
-    y: 100
+    y: 100,
+    filter: 'blur(4px)',
+
   }, {
     y: 0,
     opacity: 1,
     duration: 0.5,
     ease: "power4.out",
     delay: 0.1,
+    filter: 'blur(0px)',
+
   });
   tl.fromTo(front, {
-    opacity: 0
+    opacity: 0,
+    filter: 'blur(4px)'
+
   }, {
     opacity: 1,
-    duration: 0.4,
+    duration: 1,
     ease: "power4.out",
     delay: 0.1,
+    filter: 'blur(0px)',
+
   });
-  //   tl.fromTo([real], {
-  //     y: 100,
-  //     opacity: 0
-  //   }, {
-  //     y: 0,
-  //     opacity: 1,
-  //     duration: 0.6,
-  //     ease: "power4.out",
-  //     delay: 0.1,
-  //     // skewY: 7,
-  //     stagger: {
-  //       amount: 0.3
-  //     }
-  //   });
+
 });
 
 
@@ -92,7 +99,7 @@ onMounted(() => {
         <div class="front">
           <span v-for="i in 'FRONT-END DEVELOPER'">{{ i }}</span>
         </div>
-        <img src="@/assets/images/Hero/hero-img.png" alt="" class="image-hero">
+        <img src="@/assets/images/Hero/hero-png-2.png" alt="" class="image-hero">
         <div class="designer">
           <p>WEB DESIGNER</p>
         </div>
@@ -106,9 +113,10 @@ onMounted(() => {
 </template>
 <style scoped lang="scss">
 .hero {
-  background-color: #FF846A;
+  background-color: #FF5835;
   height: 110vh;
   font-family: 'wp';
+
 }
 
 .content {
@@ -116,27 +124,29 @@ onMounted(() => {
   padding-top: 125px;
 
   h1 {
-    transform: translateX(10px);
+    transform: translateX(-3px);
     font-size: 6.3vw;
     font-family: 'wp';
     line-height: 5.5vw;
-    overflow: hidden;
-
 
 
     span {
+      &.everything-you {
+        padding-bottom: 10px;
+      }
 
       &.everything-you,
       &.imagine,
       &.real {
+        @apply items-end;
         display: flex;
-        align-items: end;
         overflow: hidden;
         gap: 2px;
       }
 
 
       &.italic {
+        @apply translate-x-2;
         font-family: 'sd';
         line-height: 4.7vw;
 
@@ -166,7 +176,7 @@ onMounted(() => {
 
       p {
         font-size: 2.3vw;
-        color: #FF846A;
+        color: #FF5835;
         -webkit-text-stroke: 1px black;
       }
     }

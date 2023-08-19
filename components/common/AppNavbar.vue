@@ -1,5 +1,29 @@
 <script setup>
+import { gsap } from 'gsap';
 
+
+onMounted(() => {
+  const logo = document.querySelectorAll('.logo');
+  const menu = document.querySelectorAll('.menu');
+  const tl = gsap.timeline();
+
+  tl.fromTo([logo, menu], {
+    opacity: 0,
+    filter: 'blur(4px)'
+
+  }, {
+    opacity: 1,
+    duration: 1,
+    ease: "power4.out",
+    delay: 1,
+    filter: 'blur(0px)',
+    stagger: {
+      amount: 0.5
+    },
+  });
+
+
+})
 </script>
 <template>
   <nav>
@@ -28,6 +52,10 @@ nav {
 .wrapper {
   @apply flex justify-center items-center;
   font-size: 30px;
+
+  span {
+    display: block;
+  }
 
   .reverse {
     @apply relative;
