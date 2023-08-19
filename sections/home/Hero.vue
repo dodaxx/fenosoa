@@ -15,11 +15,12 @@ onMounted(() => {
   const designer = document.querySelector('.designer');
   const designerContent = document.querySelector('.designer > p');
   const front = document.querySelector('.front');
+  const svg = document.querySelector('.scroll-down>svg');
+  const overlay = document.querySelector('.bt>.overlay');
   const tl = gsap.timeline();
 
   tl.fromTo([everythingContent, imagineContent, realContent], {
     y: 100,
-    opacity: 0,
     filter: 'blur(4px)'
   },
     {
@@ -29,7 +30,6 @@ onMounted(() => {
       ease: "power4.out",
       delay: 3,
       filter: 'blur(0px)',
-      // skewY: 7,
       stagger: {
         amount: 0.3
       },
@@ -40,19 +40,15 @@ onMounted(() => {
   );
   tl.fromTo(imgHero, {
     opacity: 0,
-    filter: 'blur(4px)'
-
   }, {
     opacity: 1,
-    duration: 1,
+    duration: 2,
     ease: "power4.out",
-    delay: 0.5,
-    filter: 'blur(0px)'
+    delay: 0.1,
 
-  });
-  tl.fromTo(designerContent, {
+  }).fromTo(designerContent, {
     opacity: 0,
-    y: 100,
+    y: 50,
     filter: 'blur(4px)',
 
   }, {
@@ -66,29 +62,29 @@ onMounted(() => {
   });
   tl.fromTo(front, {
     opacity: 0,
-    filter: 'blur(4px)'
 
   }, {
     opacity: 1,
     duration: 1,
     ease: "power4.out",
     delay: 0.1,
-    filter: 'blur(0px)',
 
   });
 
-  gsap.to([everything, imagine, real, imgHero, designer, front], {
-    y: -400,
+  gsap.to([front, everything, imagine, real, designer], {
+    y: -150,
+    filter: 'blur(10px)',
     scrollTrigger: {
       trigger: hero,
-      ease: "power4.out",
+      ease: "Back.easOut",
       start: "5% top",
       end: "100% top",
-      scrub: 2,
+      scrub: 1,
     },
   });
   gsap.to(imgHero, {
-    y: -200,
+    y: -100,
+    filter: 'blur(10px)',
     scrollTrigger: {
       trigger: hero,
       start: "5% top",
@@ -96,7 +92,24 @@ onMounted(() => {
       scrub: 2,
     },
   });
-
+  gsap.to(overlay, {
+    opacity: 0,
+    scrollTrigger: {
+      trigger: hero,
+      start: "5% top",
+      end: "100% top",
+      scrub: true,
+    },
+  });
+  gsap.to(svg, {
+    y: -50,
+    scrollTrigger: {
+      trigger: hero,
+      start: "5% top",
+      end: "100% top",
+      scrub: 2,
+    },
+  });
 });
 
 
@@ -106,9 +119,10 @@ onMounted(() => {
     <div class="content">
       <h1>
         <span class="everything-you">
-          <span v-for="i in 'EVERYTHING'" class="everything-content">{{ i }}</span>
-          <span v-for="i in ' you'" class="italic">{{ i }}</span><br>
+          <span v-for="i in 'EVERYTHING'" class="everything-you-content">{{ i }}</span>
+          <span v-for="i in ' you'" class="italic everything-you-content">{{ i }}</span><br>
         </span>
+        <!--          //TODO: FIX SPACE LINE 'CANIMAGINE ETC' -->
         <span class="imagine">
           <span v-for="i in 'CAN IMAGINE'" class="imagine-content">{{ i }}</span><br>
         </span>
@@ -120,6 +134,7 @@ onMounted(() => {
         <div class="front">
           <span v-for="i in 'FRONT-END DEVELOPER'">{{ i }}</span>
         </div>
+        <div class="overlay"></div>
         <img src="@/assets/images/Hero/hero-png-2.png" alt="" class="image-hero">
         <div class="designer">
           <p>WEB DESIGNER</p>
@@ -135,9 +150,10 @@ onMounted(() => {
 <style scoped lang="scss">
 .hero {
   background-color: #FF5835;
+  /* background-color: #ffffff; */
   height: 110vh;
   font-family: 'wp';
-
+  display: relative;
 }
 
 .content {
@@ -145,33 +161,38 @@ onMounted(() => {
   padding-top: 125px;
 
   h1 {
+    @apply relative z-10;
     transform: translateX(-3px);
     font-size: 6.3vw;
     font-family: 'wp';
     line-height: 5.5vw;
 
 
-    span {
-      &.everything-you {
-        padding-bottom: 10px;
+
+    .everything-you,
+    .imagine,
+    .real {
+      @apply items-end;
+      display: flex;
+      overflow: hidden;
+      gap: 2px;
+
+
+      &-content {
+        opacity: 0;
       }
+    }
 
-      &.everything-you,
-      &.imagine,
-      &.real {
-        @apply items-end;
-        display: flex;
-        overflow: hidden;
-        gap: 2px;
-      }
+    .everything-you {
+      padding-bottom: 10px;
+    }
 
 
-      &.italic {
-        @apply translate-x-2;
-        font-family: 'sd';
-        line-height: 4.7vw;
+    .italic {
+      @apply translate-x-2;
+      font-family: 'sd';
+      line-height: 4.7vw;
 
-      }
     }
   }
 
@@ -179,13 +200,24 @@ onMounted(() => {
     @apply absolute;
     top: 130px;
 
+    .overlay {
+      z-index: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #ff57351c;
+    }
+
+    img {
+      opacity: 0;
+    }
 
     .front {
-      @apply absolute;
+      @apply absolute z-10;
       font-size: 2.3vw;
       bottom: 2px;
       right: -4%;
-      overflow: hidden;
+      opacity: 0;
     }
 
     .designer {
@@ -196,6 +228,7 @@ onMounted(() => {
       overflow: hidden;
 
       p {
+        opacity: 0;
         font-size: 2.3vw;
         color: #FF5835;
         -webkit-text-stroke: 1px black;

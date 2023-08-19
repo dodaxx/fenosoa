@@ -3,8 +3,8 @@ import { gsap } from 'gsap';
 
 
 onMounted(() => {
-  const logo = document.querySelectorAll('.logo');
-  const menu = document.querySelectorAll('.menu');
+  const logo = document.querySelector('.logo > .wrapper');
+  const menu = document.querySelector('.menu');
   const tl = gsap.timeline();
 
   tl.fromTo([logo, menu], {
@@ -52,6 +52,7 @@ nav {
 .wrapper {
   @apply flex justify-center items-center;
   font-size: 30px;
+  opacity: 0;
 
   span {
     display: block;
@@ -67,6 +68,7 @@ nav {
 
 .menu {
   /* @apply col-start-12; */
+  opacity: 0;
   font-size: 25px;
 }
 </style>

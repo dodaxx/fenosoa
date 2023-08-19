@@ -4,11 +4,23 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
-  const section = document.getElementsByClassName('what-section');
-  gsap.to(section, {
+  const sectionWhat = document.getElementsByClassName('what-section');
+  const hero = document.querySelector('.hero');
+  const designerContent = document.querySelector('.designer > p');
+
+  gsap.to([hero, sectionWhat], {
     backgroundColor: '#F9DCC5',
     scrollTrigger: {
-      trigger: section,
+      trigger: sectionWhat,
+      start: "top 45%",
+      end: "top 45%",
+      scrub: 2,
+    },
+  })
+  gsap.to(designerContent, {
+    color: '#F9DCC5',
+    scrollTrigger: {
+      trigger: sectionWhat,
       start: "top 45%",
       end: "top 45%",
       scrub: 2,
@@ -52,6 +64,14 @@ onMounted(() => {
     font-size: 55px;
     font-family: 'ns';
     line-height: 60px;
+
+    h3 {
+      @apply flex;
+
+      span {
+        @apply block;
+      }
+    }
   }
 
   .image {
