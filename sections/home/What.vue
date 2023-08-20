@@ -7,6 +7,13 @@ onMounted(() => {
   const sectionWhat = document.getElementsByClassName('what-section');
   const hero = document.querySelector('.hero');
   const designerContent = document.querySelector('.designer > p');
+  const loseContent = document.querySelectorAll('.lose > span');
+  const todayContent = document.querySelectorAll('.today > span');
+  const image = document.querySelectorAll('.lft > .image');
+  const whatContent = document.querySelectorAll('.rgt  > h3 > .what > span');
+  const youContent = document.querySelectorAll('.rgt > h3 > .you > span');
+
+  const tl = gsap.timeline();
 
   gsap.to([hero, sectionWhat], {
     backgroundColor: '#F9DCC5',
@@ -26,6 +33,74 @@ onMounted(() => {
       scrub: 2,
     },
   })
+
+
+  tl.fromTo([loseContent, todayContent], {
+    y: 100,
+    filter: 'blur(4px)'
+  },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power4.out",
+      delay: 1,
+      filter: 'blur(0px)',
+      stagger: {
+        amount: 0.3
+      },
+      scrollTrigger: {
+        trigger: sectionWhat,
+        start: "top 45%",
+        end: "top 30%",
+        scrub: 2.2,
+      },
+    },
+  );
+  tl.fromTo(image, {
+    y: 100,
+    filter: 'blur(4px)'
+  },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power4.out",
+      delay: 1,
+      filter: 'blur(0px)',
+      stagger: {
+        amount: 0.3
+      },
+      scrollTrigger: {
+        trigger: sectionWhat,
+        start: "top 25%",
+        end: "top 5%",
+        scrub: 2.2,
+      },
+    },
+  );
+  tl.fromTo([whatContent, youContent], {
+    y: 500,
+    filter: 'blur(4px)'
+  },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: "power4.out",
+      delay: 1,
+      filter: 'blur(0px)',
+      stagger: {
+        amount: 0.3
+      },
+      scrollTrigger: {
+        trigger: sectionWhat,
+        start: "top 10%",
+        end: "top -15%",
+        scrub: 2.4,
+      },
+    },
+  );
 })
 </script>
 <template>
@@ -33,7 +108,12 @@ onMounted(() => {
     <div class="lft">
       <div class="title">
         <h3>
-          <span v-for="i in `You Don't Lose Anything Today ...`">{{ i }}</span>
+          <span class="lose">
+            <span v-for="i in `You\n Don't\n Lose `">{{ i.replace(/\n/gm, '&nbsp') }}</span>
+          </span>
+          <span class="today">
+            <span v-for="i in ` Anything\n Today...`">{{ i.replace(/\n/gm, '&nbsp') }}</span>
+          </span>
         </h3>
       </div>
       <div class="image">
@@ -42,9 +122,13 @@ onMounted(() => {
     </div>
     <div class="rgt">
       <h3>
-        <span v-for="i in 'WHAT'" class="what">{{ i }}</span> <br>
-        <span v-for="i in 'you'" class="you">{{ i }}</span>
-        <span v-for="i in ' NEED?'" class="need">{{ i }}</span>
+        <span class="what">
+          <span v-for="i in 'WHAT'">{{ i }}</span> <br>
+        </span>
+        <span class="you">
+          <span v-for="i in 'you\n'" class="italic">{{ i.replace(/\n/gm, '&nbsp') }}</span>
+          <span v-for="i in ' NEED?'">{{ i }}</span>
+        </span>
       </h3>
     </div>
   </CommonAppGrid>
@@ -66,16 +150,24 @@ onMounted(() => {
     line-height: 60px;
 
     h3 {
-      @apply flex;
 
-      span {
-        @apply block;
+      .lose,
+      .today {
+        @apply flex;
+        overflow: hidden;
+        width: 100%;
+
+        span {
+          @apply block;
+        }
       }
+
     }
   }
 
   .image {
     margin-top: 37px;
+    opacity: 0;
 
     img {
       border-radius: 50px;
@@ -93,20 +185,38 @@ onMounted(() => {
   color: #FF5835;
 
   .what {
-    @apply relative -left-40;
+    @apply relative -left-40 flex;
     font-size: 250px;
     background-color: transparent;
+    line-height: 175px;
+    overflow: hidden;
+
+    span {
+      @apply block;
+    }
 
   }
 
   .you {
+    @apply flex relative items-end;
     font-size: 125px;
-    font-family: 'sd';
+    line-height: 115px;
+    overflow: hidden;
+    padding-left: 36px;
+    padding-bottom: 20px;
+
+    .italic {
+      @apply relative;
+      font-family: 'sd';
+      bottom: -10px;
+
+
+    }
+
+    span {
+      @apply block;
+    }
   }
 
-  .need {
-    font-size: 125px;
-    font-family: 'wp';
-  }
 }
 </style>

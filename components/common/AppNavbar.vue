@@ -21,9 +21,7 @@ onMounted(() => {
       amount: 0.5
     },
   });
-
-
-})
+});
 </script>
 <template>
   <nav>

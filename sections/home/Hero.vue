@@ -119,20 +119,19 @@ onMounted(() => {
     <div class="content">
       <h1>
         <span class="everything-you">
-          <span v-for="i in 'EVERYTHING'" class="everything-you-content">{{ i }}</span>
-          <span v-for="i in ' you'" class="italic everything-you-content">{{ i }}</span><br>
+          <span v-for="i in 'EVERYTHING\n'" class="everything-you-content">{{ i.replace(/\n/gm, '&nbsp') }}</span>
+          <span v-for="i in 'you'" class="italic everything-you-content">{{ i }}</span><br>
         </span>
-        <!--          //TODO: FIX SPACE LINE 'CANIMAGINE ETC' -->
         <span class="imagine">
-          <span v-for="i in 'CAN IMAGINE'" class="imagine-content">{{ i }}</span><br>
+          <span v-for="i in 'CAN\n IMAGINE'" class="imagine-content">{{ i.replace(/\n/gm, '&nbsp') }}</span><br>
         </span>
         <span class="real">
-          <span v-for="i in 'IS REAL.'" class="real-content">{{ i }}</span>
+          <span v-for="i in 'IS\n REAL.'" class="real-content">{{ i.replace(/\n/gm, '&nbsp') }}</span>
         </span>
       </h1>
       <div class="bt">
         <div class="front">
-          <span v-for="i in 'FRONT-END DEVELOPER'">{{ i }}</span>
+          <span v-for="i in 'FRONT-END\n DEVELOPER'">{{ i.replace(/\n/gm, '&nbsp') }}</span>
         </div>
         <div class="overlay"></div>
         <img src="@/assets/images/Hero/hero-png-2.png" alt="" class="image-hero">
@@ -189,10 +188,9 @@ onMounted(() => {
 
 
     .italic {
-      @apply translate-x-2;
+      @apply relative -left-4;
       font-family: 'sd';
       line-height: 4.7vw;
-
     }
   }
 
@@ -213,7 +211,8 @@ onMounted(() => {
     }
 
     .front {
-      @apply absolute z-10;
+      @apply absolute;
+      z-index: 0;
       font-size: 2.3vw;
       bottom: 2px;
       right: -4%;
