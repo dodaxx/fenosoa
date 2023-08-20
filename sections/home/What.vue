@@ -33,8 +33,6 @@ onMounted(() => {
       scrub: 2,
     },
   })
-
-
   tl.fromTo([loseContent, todayContent], {
     y: 100,
     filter: 'blur(4px)'
@@ -102,6 +100,7 @@ onMounted(() => {
     },
   );
 })
+
 </script>
 <template>
   <CommonAppGrid class-content="what-section">

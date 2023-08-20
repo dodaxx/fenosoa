@@ -17,6 +17,14 @@
 }
 
 @font-face {
+  font-family: 'sdr';
+  src: url('@/assets/fonts/SaolDisplay-Regular.woff') format('woff');
+  font-style: italic;
+  font-display: swap;
+}
+
+
+@font-face {
   font-family: 'ns';
   src: url('@/assets/fonts/Newsreader_14pt-SemiBold.woff') format('woff');
   font-style: italic;
@@ -25,4 +33,8 @@
 
 :root {
   --blue: #161E25;
+}
+
+body {
+  background-color: #F9DCC5;
 }

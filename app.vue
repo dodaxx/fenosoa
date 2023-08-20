@@ -70,9 +70,16 @@ onMounted(() => {
   }
   init();
 
+
 })
 </script>
 <template>
+  <!-- <script
+            dangerouslySetInnerHTML={{
+              __html: `history.scrollRestoration = "manual"`,
+            }}
+          /> -->
+
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
