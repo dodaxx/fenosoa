@@ -125,7 +125,7 @@ onMounted(() => {
           <span v-for="i in `Let's\n create\n an`"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
         </span>
         <span class="text-content attr">
-          <span v-for="i in `intuitive,\n accessible`"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
+          <span v-for="i in `intuitive,\n accessible,`"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
         </span>
         <span class="text-content attr">
           <span v-for="i in `attractive\n website`"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
@@ -143,7 +143,7 @@ onMounted(() => {
     <div class="text">
       <p>
         <span class="text-content mdm">
-          <span v-for="i in `To\n arrange\nyou `"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
+          <span v-for="i in `To\n arrange\nyour `"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
         </span>
         <span class="text-content mdm">
           <span v-for="i in `website\nmodern, `"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
@@ -152,7 +152,7 @@ onMounted(() => {
           <span v-for="i in `minimalist\ndesign `"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
         </span>
         <span class="text-content mdm">
-          <span v-for="i in ` work\nin\na\nsimple way`"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
+          <span v-for="i in ` work\nin\na\nsimple\n way`"> {{ i.replace(/\n/gm, '&nbsp') }}</span>
         </span>
       </p>
     </div>

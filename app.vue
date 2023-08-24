@@ -81,7 +81,9 @@ onMounted(() => {
           /> -->
 
   <NuxtLayout>
+
     <NuxtPage />
+
   </NuxtLayout>
 </template>
 <style></style>

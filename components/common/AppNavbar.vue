@@ -1,11 +1,47 @@
 <script setup>
 import { gsap } from 'gsap';
 
+const tl = gsap.timeline();
+const route = useRoute();
+
+function handleToggleMenu(b) {
+  const links = document.querySelector('.links');
+  const navlinks = document.querySelectorAll('.navlinks ul > li> .navlinks-content > span');
+  const btn = document.querySelector('.less');
+
+  tl.to(links, {
+    y: b ? 0 : '-100%',
+    ease: b ? "power4.out" : "",
+    duration: b ? 1 : 0.5
+  });
+  tl.fromTo(navlinks, {
+    y: b ? 200 : 0,
+    filter: b ? 'blur(4px)' : 'blur(0px)'
+  }, {
+    y: b ? 0 : 200,
+    opacity: 1,
+    duration: b ? 0.5 : 0.3,
+    ease: "power4.out",
+    delay: 0.1,
+    filter: b ? 'blur(0px)' : 'blur(4px)',
+    stagger: {
+      amount: 0.3
+    },
+  });
+  tl.fromTo(btn, {
+    opacity: b ? 0 : 1,
+    filter: b ? 'blur(4px)' : 'blur(0px)',
+  }, {
+    opacity: b ? 1 : 0,
+    filter: b ? 'blur(0px)' : 'blur(4px)',
+  });
+
+}
+
 
 onMounted(() => {
   const logo = document.querySelector('.logo > .wrapper');
   const menu = document.querySelector('.menu');
-  const tl = gsap.timeline();
 
   tl.fromTo([logo, menu], {
     opacity: 0,
@@ -14,14 +50,26 @@ onMounted(() => {
   }, {
     opacity: 1,
     duration: 1,
-    ease: "power4.out",
-    delay: 1,
+    ease: "power2.out",
+    delay: 0.5,
     filter: 'blur(0px)',
     stagger: {
       amount: 0.5
     },
   });
 });
+
+function enterNavlinks(e, c) {
+  const links = document.querySelector('.links');
+  links.classList.add(c);
+  e.target.classList.add('active')
+};
+function leaveNavlinks(e, c) {
+  const links = document.querySelector('.links');
+  links.classList.remove(c);
+  e.target.classList.remove('active')
+};
+
 </script>
 <template>
   <nav>
@@ -32,8 +80,37 @@ onMounted(() => {
         <span v-for="t in 'XX'">{{ t }}</span>
       </div>
     </div>
-    <div class="menu">
+    <div class="menu" @click="handleToggleMenu(true)">
       <span v-for="t in 'More'">{{ t }}</span>
+    </div>
+    <div class="links ">
+      <div class="links-wrapper">
+        <div class="less" @click="handleToggleMenu(false)">
+          <button>
+            Less
+          </button>
+        </div>
+        <div class="navlinks">
+          <ul>
+            <li @mouseenter="(e) => enterNavlinks(e, 'yellow')" @mouseleave="(e) => leaveNavlinks(e, 'yellow')">
+              <span class="navlinks-content">
+                <span v-for="i in `HOME`">{{ i }}</span>
+              </span>
+              <div class="svg">
+                <DisplayNavlinkActive />
+              </div>
+            </li>
+            <li @mouseenter="(e) => enterNavlinks(e, 'green')" @mouseleave="(e) => leaveNavlinks(e, 'green')">
+              <span class="navlinks-content">
+                <span v-for="i in `ABOUT`">{{ i.replace(/\n/gm, '&nbsp') }}</span>
+              </span>
+              <div class="svg">
+                <DisplayNavlinkActive />
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -43,9 +120,8 @@ nav {
   font-family: 'wp';
   width: 100%;
   padding: 30px 32px 0 32px;
+  z-index: 1000;
 }
-
-
 
 .wrapper {
   @apply flex justify-center items-center;
@@ -68,5 +144,91 @@ nav {
   /* @apply col-start-12; */
   opacity: 0;
   font-size: 25px;
+  cursor: pointer;
+}
+
+.links {
+  @apply absolute top-0 left-0;
+  width: 100%;
+  height: 100vh;
+  transform: translateY(-100%);
+  background-color: black;
+  padding: 30px 32px 0 32px;
+  transition: 0.2s;
+
+  &-wrapper {
+    @apply grid grid-cols-12 gap-5;
+
+    .less {
+      @apply col-start-12 flex justify-end;
+      cursor: pointer;
+
+      button {
+        font-size: 25px;
+        color: white;
+        font-size: 25px;
+        border: transparent;
+
+        &:hover {
+          color: #FF5835;
+        }
+      }
+    }
+
+    .navlinks {
+      @apply col-start-5 col-span-4;
+      /* height: 100%; */
+      padding-top: 170px;
+      font-family: 'gb';
+
+      li {
+        @apply relative;
+        font-size: 170px;
+        color: white;
+        line-height: 150px;
+        cursor: pointer;
+
+        &.active {
+          color: #FF5835 !important;
+
+          .svg {
+            width: 100%;
+          }
+        }
+
+        /* &:hover {
+          color: #FF5835;
+        } */
+
+        .navlinks-content {
+          @apply flex;
+          overflow: hidden;
+
+          span {
+            @apply block;
+
+          }
+        }
+
+        .svg {
+          @apply absolute;
+          left: -20%;
+          top: 20%;
+          overflow: hidden;
+          width: 0;
+          transition: all 0.2s;
+
+        }
+      }
+    }
+  }
+
+  &.yellow {
+    background-color: #F9DCC5;
+  }
+
+  &.green {
+    background-color: #4AAA99;
+  }
 }
 </style>

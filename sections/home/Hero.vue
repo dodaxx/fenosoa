@@ -28,7 +28,7 @@ onMounted(() => {
       opacity: 1,
       duration: 0.8,
       ease: "power4.out",
-      delay: 3,
+      delay: 2,
       filter: 'blur(0px)',
       stagger: {
         amount: 0.3
@@ -42,7 +42,7 @@ onMounted(() => {
     opacity: 0,
   }, {
     opacity: 1,
-    duration: 2,
+    duration: 1.7,
     ease: "power4.out",
     delay: 0.1,
 
@@ -54,7 +54,7 @@ onMounted(() => {
   }, {
     y: 0,
     opacity: 1,
-    duration: 0.5,
+    duration: 0.3,
     ease: "power4.out",
     delay: 0.1,
     filter: 'blur(0px)',
@@ -92,15 +92,15 @@ onMounted(() => {
       scrub: 2,
     },
   });
-  gsap.to(overlay, {
-    opacity: 0,
-    scrollTrigger: {
-      trigger: hero,
-      start: "5% top",
-      end: "100% top",
-      scrub: true,
-    },
-  });
+  // gsap.to(overlay, {
+  //   opacity: 0,
+  //   scrollTrigger: {
+  //     trigger: hero,
+  //     start: "5% top",
+  //     end: "100% top",
+  //     scrub: true,
+  //   },
+  // });
   gsap.to(svg, {
     y: -50,
     scrollTrigger: {
@@ -133,7 +133,7 @@ onMounted(() => {
         <div class="front">
           <span v-for="i in 'FRONT-END\n DEVELOPER'">{{ i.replace(/\n/gm, '&nbsp') }}</span>
         </div>
-        <div class="overlay"></div>
+        <!-- <div class="overlay"></div> -->
         <img src="@/assets/images/Hero/hero-png-2.png" alt="" class="image-hero">
         <div class="designer">
           <p>WEB DESIGNER</p>
@@ -144,6 +144,7 @@ onMounted(() => {
         <div class="eclipse"></div>
       </div>
     </div>
+
   </CommonAppGrid>
 </template>
 <style scoped lang="scss">
