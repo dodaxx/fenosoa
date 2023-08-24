@@ -134,7 +134,7 @@ onMounted(() => {
           <span v-for="i in 'FRONT-END\n DEVELOPER'">{{ i.replace(/\n/gm, '&nbsp') }}</span>
         </div>
         <!-- <div class="overlay"></div> -->
-        <img src="@/assets/images/Hero/hero-png-2.png" alt="" class="image-hero">
+        <img src="@/assets/images/Hero/hero.webp" alt="" class="image-hero">
         <div class="designer">
           <p>WEB DESIGNER</p>
         </div>

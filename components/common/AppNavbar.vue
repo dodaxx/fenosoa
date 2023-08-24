@@ -11,8 +11,8 @@ function handleToggleMenu(b) {
 
   tl.to(links, {
     y: b ? 0 : '-100%',
-    ease: b ? "power4.out" : "",
-    duration: b ? 1 : 0.5
+    ease: b ? "power4.out" : "power2.out",
+    duration: b ? 0.2 : 0.2
   });
   tl.fromTo(navlinks, {
     y: b ? 200 : 0,
