@@ -197,8 +197,8 @@ onMounted(() => {
 .image {
   @apply col-start-8 col-span-4;
 
-  img {
+  /* img {
     border-radius: 20px;
-  }
+  } */
 }
 </style>
