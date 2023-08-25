@@ -169,7 +169,7 @@ onMounted(() => {
     opacity: 0;
 
     img {
-      border-radius: 50px;
+      border-radius: 20px;
       height: 100%;
       width: 100%;
       object-fit: contain;

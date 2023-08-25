@@ -19,7 +19,7 @@
 @font-face {
   font-family: 'sdr';
   src: url('@/assets/fonts/SaolDisplay-Regular.woff') format('woff');
-  font-style: italic;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -43,5 +43,5 @@
 }
 
 body {
-  background-color: #F9DCC5;
+  background-color: #000000;
 }
