@@ -10,10 +10,11 @@ onMounted(() => {
   const modernSection = document.querySelector('.modern');
   const textAttractiveContent = document.querySelectorAll('.text-content.attr > span');
   const textModernContent = document.querySelectorAll('.text-content.mdm > span');
-  const imageAttractive = document.querySelectorAll('.intuitive-section > .image.attr');
-  const imageModern = document.querySelectorAll('.intuitive-section > .image.mdm');
+  const maskAttractive = document.querySelectorAll('.intuitive-section > .image.attr .mask-attr');
+  const imageAttractive = document.querySelectorAll('.intuitive-section > .image.attr img');
+  const maskModern = document.querySelectorAll('.intuitive-section > .image.mdm .mask-mdm ');
+  const imageModern = document.querySelectorAll('.intuitive-section > .image.mdm ');
   const _whatSection = document.querySelector('.what-section');
-
 
 
   const heightWhatSection = _whatSection.getBoundingClientRect().bottom - _whatSection.getBoundingClientRect().top;
@@ -21,6 +22,8 @@ onMounted(() => {
   const heightAttractiveSection = attractiveSection.getBoundingClientRect().bottom - attractiveSection.getBoundingClientRect().top;
   const positionEndAttractiveSection = heightAttractiveSection + (heightModernSection * 15 / 100);
   const positionEndWhatSection = heightWhatSection + heightAttractiveSection + (heightModernSection * 15 / 100);
+
+  const tl = gsap.timeline();
 
   ScrollTrigger.create({
     trigger: _whatSection,
@@ -44,7 +47,6 @@ onMounted(() => {
     pinSpacing: false,
   });
 
-  const tl = gsap.timeline();
   tl.fromTo(textAttractiveContent, {
     y: 100,
     filter: 'blur(4px)'
@@ -66,18 +68,32 @@ onMounted(() => {
         scrub: 2.4,
       },
     },
-  ).fromTo(imageAttractive, {
-    opacity: 0
-  }, {
-    opacity: 1,
+  ).to(maskAttractive, {
     duration: 1,
+    width: 0,
+    ease: "power4.out",
     scrollTrigger: {
       trigger: attractiveSection,
-      start: "top 55%",
-      end: "top 55%",
-      scrub: 2.4,
+      start: "top 25%",
+      end: "top 10%",
+      scrub: 1,
     },
   })
+
+  gsap.fromTo(imageAttractive, {
+    scale: 2
+  }, {
+    duration: 1,
+    scale: 1,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: attractiveSection,
+      start: "top 25%",
+      end: "top 5%",
+      scrub: 1,
+    },
+  })
+
   tl.fromTo(textModernContent, {
     y: 100,
     filter: 'blur(4px)'
@@ -99,16 +115,15 @@ onMounted(() => {
         scrub: 2.4,
       },
     },
-  ).fromTo(imageModern, {
-    opacity: 0
-  }, {
-    opacity: 1,
-    duration: 1,
+  ).to(maskModern, {
+    width: 0,
+    ease: "power4.out",
     scrollTrigger: {
       trigger: modernSection,
       start: "top 55%",
       end: "top 55%",
       scrub: 2.4,
+
     },
   })
 
@@ -136,6 +151,7 @@ onMounted(() => {
       </p>
     </div>
     <div class="image attr">
+      <span class="mask-attr"></span>
       <img src="@/assets/images/intuitive/fa.png" alt="">
     </div>
   </CommonAppGrid>
@@ -157,6 +173,7 @@ onMounted(() => {
       </p>
     </div>
     <div class="image mdm">
+      <span class="mask-mdm"></span>
       <img src="@/assets/images/intuitive/mail.png" alt="">
     </div>
   </CommonAppGrid>
@@ -195,10 +212,24 @@ onMounted(() => {
 }
 
 .image {
-  @apply col-start-8 col-span-4;
+  @apply col-start-8 col-span-4 relative;
+  overflow: hidden;
+  height: 300px;
 
-  /* img {
-    border-radius: 20px;
-  } */
+  .mask-attr {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 10;
+  }
+
+  .mask-mdm {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #4AAA99;
+    z-index: 10;
+  }
 }
 </style>
