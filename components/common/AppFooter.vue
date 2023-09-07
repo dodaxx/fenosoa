@@ -17,6 +17,7 @@ onMounted(() => {
   const copyrightContent = document.querySelectorAll('.footer-copyright p span');
   const footerDown = document.querySelectorAll('.footer-down svg');
   const navbar = document.querySelector('nav');
+
   gsap.to(navbar, {
     opacity: 0,
     color: 'white',
