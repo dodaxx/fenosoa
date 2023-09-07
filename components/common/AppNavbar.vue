@@ -94,8 +94,6 @@ function enterNavlinks(e, c, p) {
   if (route.path !== p) {
     const links = document.querySelector('.links');
     links.classList.add(c);
-    // e.target.classList.add('active')
-    console.log('active');
   }
 };
 function leaveNavlinks(e, c, p) {

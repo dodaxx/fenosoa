@@ -1,7 +1,5 @@
 <script setup>
-onMounted(() => {
-  console.log('home');
-})
+
 
 </script>
 <template>

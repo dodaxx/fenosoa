@@ -193,8 +193,8 @@ onMounted(() => {
     </div>
     <div class="image mdm">
       <span class="mask-mdm"></span>
-      <div class="border-type-3 border-mdm"></div>
-      <div class="border-type-4 border-mdm"></div>
+      <div class="border-type-1 green border-mdm"></div>
+      <div class="border-type-2 green border-mdm"></div>
       <div class="text green">
         <p>#MAILAKA</p>
       </div>
@@ -251,6 +251,11 @@ onMounted(() => {
       box-shadow: -10px -10px 0 rgb(0, 0, 0);
       transform: rotate(90deg);
       z-index: 1000;
+
+      &.green {
+        box-shadow: -10px -10px 0 #4AAA99;
+
+      }
     }
 
 
@@ -258,7 +263,7 @@ onMounted(() => {
     &-2 {
       position: absolute;
       right: 0;
-      top: 65px;
+      top: 45px;
       width: 25px;
       height: 25px;
       z-index: 1000;
@@ -266,31 +271,10 @@ onMounted(() => {
       border-radius: 50%;
       box-shadow: -10px -10px 0 rgb(0, 0, 0);
       transform: rotate(90deg);
-    }
 
-    &-3 {
-      position: absolute;
-      right: 30%;
-      width: 25px;
-      height: 25px;
-      background-color: rgba(226, 153, 153, 0);
-      border-radius: 50%;
-      box-shadow: -10px -10px 0 #4AAA99;
-      transform: rotate(90deg);
-      z-index: 1000;
-    }
-
-    &-4 {
-      position: absolute;
-      right: 0;
-      top: 65px;
-      width: 25px;
-      height: 25px;
-      z-index: 1000;
-      background-color: rgba(12, 12, 12, 0);
-      border-radius: 50%;
-      box-shadow: -10px -10px 0 #4AAA99;
-      transform: rotate(90deg);
+      &.green {
+        box-shadow: -10px -10px 0 #4AAA99;
+      }
     }
   }
 
@@ -302,15 +286,15 @@ onMounted(() => {
     background-color: rgb(0, 0, 0);
     position: absolute;
     right: 0;
-    height: 50px;
     font-family: 'gb';
     font-size: 36px;
     width: 30%;
-    height: 65px;
+    height: 45px;
     padding-left: 20px;
     border-bottom-left-radius: 20px;
     z-index: 1000;
     color: white;
+    line-height: 40px;
 
     &.green {
       background-color: #4AAA99;
