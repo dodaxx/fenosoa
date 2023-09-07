@@ -6,14 +6,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
   const attractiveSection = document.querySelector('.attractive');
-  const attractive = document.querySelector('.modern');
-  const modernSection = document.querySelector('.modern');
   const textAttractiveContent = document.querySelectorAll('.text-content.attr > span');
+  const textImageAttr = document.querySelectorAll('.intuitive-section > .image.attr .text');
+  const maskAttractive = document.querySelector('.intuitive-section > .image.attr .mask-attr');
+  const borderAttr = document.querySelectorAll('.intuitive-section > .image.attr .border-attr');
+
+  const modernSection = document.querySelector('.modern');
   const textModernContent = document.querySelectorAll('.text-content.mdm > span');
-  const maskAttractive = document.querySelectorAll('.intuitive-section > .image.attr .mask-attr');
-  const imageAttractive = document.querySelectorAll('.intuitive-section > .image.attr img');
   const maskModern = document.querySelectorAll('.intuitive-section > .image.mdm .mask-mdm ');
-  const imageModern = document.querySelectorAll('.intuitive-section > .image.mdm ');
+  const textImageMdm = document.querySelectorAll('.intuitive-section > .image.mdm .text');
+  const borderMdm = document.querySelectorAll('.intuitive-section > .image.mdm .border-mdm');
+
   const _whatSection = document.querySelector('.what-section');
 
 
@@ -47,7 +50,7 @@ onMounted(() => {
     pinSpacing: false,
   });
 
-  tl.fromTo(textAttractiveContent, {
+  gsap.fromTo(textAttractiveContent, {
     y: 100,
     filter: 'blur(4px)'
   },
@@ -56,7 +59,7 @@ onMounted(() => {
       opacity: 1,
       duration: 1,
       ease: "power4.out",
-      delay: 1,
+      // delay: 1,
       filter: 'blur(0px)',
       stagger: {
         amount: 0.3
@@ -65,36 +68,35 @@ onMounted(() => {
         trigger: attractiveSection,
         start: "top 60%",
         end: "top 35%",
-        scrub: 2.4,
+        toggleActions: 'play none none reverse',
       },
     },
-  ).to(maskAttractive, {
+  )
+  gsap.to(maskAttractive, {
     duration: 1,
     width: 0,
     ease: "power4.out",
     scrollTrigger: {
       trigger: attractiveSection,
-      start: "top 25%",
-      end: "top 10%",
-      scrub: 1,
+      start: "top 60%",
+      // end: "top 0%",
+      toggleActions: 'play none none reverse',
     },
-  })
-
-  gsap.fromTo(imageAttractive, {
-    scale: 2
+  });
+  gsap.fromTo([textImageAttr, borderAttr], {
+    y: -200,
   }, {
-    duration: 1,
-    scale: 1,
-    ease: "power4.out",
+    y: 0,
     scrollTrigger: {
       trigger: attractiveSection,
       start: "top 25%",
-      end: "top 5%",
+      end: "top 25%",
+      // toggleActions: 'play none none reverse',
       scrub: 1,
-    },
-  })
+    }
+  });
 
-  tl.fromTo(textModernContent, {
+  gsap.fromTo(textModernContent, {
     y: 100,
     filter: 'blur(4px)'
   },
@@ -112,24 +114,36 @@ onMounted(() => {
         trigger: modernSection,
         start: "top 60%",
         end: "top 35%",
-        scrub: 2.4,
+        toggleActions: 'play none none reverse',
       },
     },
-  ).to(maskModern, {
+  )
+  gsap.to(maskModern, {
     width: 0,
     ease: "power4.out",
     scrollTrigger: {
       trigger: modernSection,
       start: "top 55%",
       end: "top 55%",
-      scrub: 2.4,
-
+      toggleActions: 'play none none reverse',
     },
   })
+  gsap.fromTo([textImageMdm, borderMdm], {
+    y: -200,
+  }, {
+    y: 0,
+    delay: 0.5,
+    scrollTrigger: {
+      trigger: modernSection,
+      start: "top 25%",
+      end: "top 25%",
+      // toggleActions: 'play none none reverse',
+      scrub: 1,
+    }
+  });
+
 
 })
-
-
 
 </script>
 <template>
@@ -152,7 +166,12 @@ onMounted(() => {
     </div>
     <div class="image attr">
       <span class="mask-attr"></span>
-      <img src="@/assets/images/intuitive/fa.png" alt="">
+      <div class="border-type-1 border-attr"></div>
+      <div class="border-type-2 border-attr"></div>
+      <div class="text">
+        <p>#FERMEAINA</p>
+      </div>
+      <img src="@/assets/images/intuitive/ferme-aina.png" alt="">
     </div>
   </CommonAppGrid>
   <CommonAppGrid class-content="intuitive-section modern">
@@ -174,7 +193,12 @@ onMounted(() => {
     </div>
     <div class="image mdm">
       <span class="mask-mdm"></span>
-      <img src="@/assets/images/intuitive/mail.png" alt="">
+      <div class="border-type-3 border-mdm"></div>
+      <div class="border-type-4 border-mdm"></div>
+      <div class="text green">
+        <p>#MAILAKA</p>
+      </div>
+      <img src="@/assets/images/intuitive/mailaka.png" alt="">
     </div>
   </CommonAppGrid>
 </template>
@@ -216,6 +240,84 @@ onMounted(() => {
   overflow: hidden;
   height: 300px;
 
+  .border-type {
+    &-1 {
+      position: absolute;
+      right: 30%;
+      width: 25px;
+      height: 25px;
+      background-color: rgba(226, 153, 153, 0);
+      border-radius: 50%;
+      box-shadow: -10px -10px 0 rgb(0, 0, 0);
+      transform: rotate(90deg);
+      z-index: 1000;
+    }
+
+
+
+    &-2 {
+      position: absolute;
+      right: 0;
+      top: 65px;
+      width: 25px;
+      height: 25px;
+      z-index: 1000;
+      background-color: rgba(12, 12, 12, 0);
+      border-radius: 50%;
+      box-shadow: -10px -10px 0 rgb(0, 0, 0);
+      transform: rotate(90deg);
+    }
+
+    &-3 {
+      position: absolute;
+      right: 30%;
+      width: 25px;
+      height: 25px;
+      background-color: rgba(226, 153, 153, 0);
+      border-radius: 50%;
+      box-shadow: -10px -10px 0 #4AAA99;
+      transform: rotate(90deg);
+      z-index: 1000;
+    }
+
+    &-4 {
+      position: absolute;
+      right: 0;
+      top: 65px;
+      width: 25px;
+      height: 25px;
+      z-index: 1000;
+      background-color: rgba(12, 12, 12, 0);
+      border-radius: 50%;
+      box-shadow: -10px -10px 0 #4AAA99;
+      transform: rotate(90deg);
+    }
+  }
+
+  img {
+    border-radius: 16px;
+  }
+
+  .text {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    right: 0;
+    height: 50px;
+    font-family: 'gb';
+    font-size: 36px;
+    width: 30%;
+    height: 65px;
+    padding-left: 20px;
+    border-bottom-left-radius: 20px;
+    z-index: 1000;
+    color: white;
+
+    &.green {
+      background-color: #4AAA99;
+    }
+  }
+
+
   .mask-attr {
     position: absolute;
     width: 100%;
@@ -231,5 +333,7 @@ onMounted(() => {
     background-color: #4AAA99;
     z-index: 10;
   }
+
+
 }
 </style>

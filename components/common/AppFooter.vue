@@ -10,7 +10,9 @@ onMounted(() => {
   const footerDescriptionContent = document.querySelectorAll('.footer-description__content  span');
   const intuitiveSection = document.querySelector('.intuitive-section.modern');
   const intuitiveText = document.querySelector('.intuitive-section.modern .text');
+  const textImageMdm = document.querySelectorAll('.intuitive-section > .image.mdm .text');
   const intuitiveImage = document.querySelector('.intuitive-section.modern .image');
+  const borderMdm = document.querySelectorAll('.intuitive-section > .image.mdm .border-mdm');
   const socialContent = document.querySelectorAll('.content-social a span');
   const copyrightContent = document.querySelectorAll('.footer-copyright p span');
   const footerDown = document.querySelectorAll('.footer-down svg');
@@ -25,7 +27,7 @@ onMounted(() => {
       scrub: 2,
     }
   });
-  gsap.to([footer, intuitiveSection], {
+  gsap.to([footer, intuitiveSection, textImageMdm, borderMdm], {
     backgroundColor: 'black',
     color: 'white',
     scrollTrigger: {
