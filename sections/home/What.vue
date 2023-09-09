@@ -6,16 +6,15 @@ gsap.registerPlugin(ScrollTrigger);
 onMounted(() => {
   const sectionWhat = document.getElementsByClassName('what-section');
   const hero = document.querySelector('.hero');
-  const designerContent = document.querySelector('.designer > p');
+  const heroTitle = document.querySelectorAll('.hero-title h1 .text');
   const loseContent = document.querySelectorAll('.lose > span');
   const todayContent = document.querySelectorAll('.today > span');
   const image = document.querySelectorAll('.lft > .image');
   const whatContent = document.querySelectorAll('.rgt  > h3 > .what > span');
   const youContent = document.querySelectorAll('.rgt > h3 > .you > span');
-
   const tl = gsap.timeline();
 
-  gsap.to([hero, sectionWhat], {
+  gsap.to([hero, sectionWhat, heroTitle], {
     backgroundColor: '#F9DCC5',
     scrollTrigger: {
       trigger: sectionWhat,
@@ -23,16 +22,7 @@ onMounted(() => {
       end: "top 45%",
       scrub: 2,
     },
-  })
-  gsap.to(designerContent, {
-    color: '#F9DCC5',
-    scrollTrigger: {
-      trigger: sectionWhat,
-      start: "top 45%",
-      end: "top 45%",
-      scrub: 2,
-    },
-  })
+  });
   tl.fromTo([loseContent, todayContent], {
     y: 100,
     filter: 'blur(4px)'

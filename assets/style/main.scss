@@ -44,4 +44,9 @@
 
 body {
   background-color: #000000;
+  overflow: visible;
+
+  &.wait {
+    overflow: hidden;
+  }
 }
