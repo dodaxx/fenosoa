@@ -14,7 +14,7 @@ const props = defineProps({
 .app-grid {
 
   @apply grid-cols-2 gap-2;
-  padding: 0 8px;
+  padding: 0 4px;
 
   @screen md {
     @apply grid-cols-8;

@@ -98,7 +98,7 @@ onMounted(async () => {
       font-family: 'gb';
       transform: translateY(-300px);
       font-size: 45px;
-      line-height: 40px;
+      line-height: 42px;
 
       @screen md {
         font-size: 100px;
@@ -125,7 +125,7 @@ onMounted(async () => {
         background-color: #FF5835;
         border-bottom-right-radius: 16px;
         border-bottom-left-radius: 16px;
-        padding: 0 8px;
+        padding: 0 12px;
 
         @screen md {
           padding: 0 32px;
@@ -142,15 +142,14 @@ onMounted(async () => {
             box-shadow: -10px -10px 0 #FF5835;
             transform: rotate(90deg);
             z-index: 1000;
-            left: -7%;
-            top: 10%;
+            left: -6.8%;
+            top: 9%;
 
             @screen md {
-
               width: 25px;
               height: 25px;
-              left: -3%;
-              top: 13%;
+              left: -3.7%;
+              top: 12.6%;
             }
 
             @screen xl {
@@ -166,20 +165,20 @@ onMounted(async () => {
 
           &-2 {
             position: absolute;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background-color: rgba(255, 255, 255, 0);
             border-radius: 50%;
             box-shadow: -10px -10px 0 #FF5835;
             transform: rotate(90deg);
             z-index: 1000;
-            left: -11%;
-            top: 16%;
+            left: -8.4%;
+            top: 15.1%;
 
             @screen md {
-              width: 20px;
-              height: 20px;
-              left: -4%;
+              width: 25px;
+              height: 25px;
+              left: -4.6%;
               top: 16%;
             }
 
@@ -196,20 +195,20 @@ onMounted(async () => {
 
           &-3 {
             position: absolute;
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             background-color: rgba(255, 255, 255, 0);
             border-radius: 50%;
             box-shadow: -10px -10px 0 #FF5835;
             transform: rotate(-5deg);
             z-index: 1000;
-            right: -11%;
-            top: 16%;
+            right: -8.4%;
+            top: 15.1%;
 
             @screen md {
-              width: 20px;
-              height: 20px;
-              right: -4%;
+              width: 25px;
+              height: 25px;
+              right: -4.6%;
               top: 16%;
             }
 
@@ -233,14 +232,14 @@ onMounted(async () => {
             box-shadow: -10px -10px 0 #FF5835;
             transform: rotate(-5deg);
             z-index: 1000;
-            right: -7%;
-            top: 10%;
+            right: -6.8%;
+            top: 9%;
 
             @screen md {
               width: 25px;
               height: 25px;
-              right: -3%;
-              top: 13%;
+              right: -3.7%;
+              top: 12.6%;
             }
 
             @screen xl {

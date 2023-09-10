@@ -145,10 +145,11 @@ function leaveNavlinks(e, c, p) {
 </template>
 <style scoped lang="scss">
 nav {
-  @apply flex justify-between items-center pl-4 pr-4 fixed;
+  @apply flex justify-between items-center fixed;
   font-family: 'wp';
   width: 100%;
   z-index: 1000;
+  padding: 10px 4px;
 
   @screen md {
     padding: 30px 8px;
@@ -160,28 +161,44 @@ nav {
   }
 }
 
-.wrapper {
-  @apply flex justify-center items-center;
-  font-size: 30px;
-  opacity: 0;
+.logo {
+  .wrapper {
+    @apply flex justify-center items-center;
+    opacity: 0;
+    font-size: 25px;
 
-  span {
-    display: block;
-  }
+    @screen md {
+      font-size: 30px;
 
-  .reverse {
-    @apply relative;
-    top: -3px;
-    transform: rotate(180deg);
+    }
 
+    span {
+      display: block;
+    }
+
+    .reverse {
+      @apply relative;
+      transform: rotate(180deg);
+      top: -2px;
+
+      @screen xl {
+        top: -3px;
+
+      }
+    }
   }
 }
 
 .menu {
   /* @apply col-start-12; */
   opacity: 0;
-  font-size: 25px;
   cursor: pointer;
+  font-size: 20px;
+
+  @screen md {
+    font-size: 25px;
+
+  }
 }
 
 .links {
