@@ -207,11 +207,20 @@ nav {
   height: 100vh;
   transform: translateY(-100%);
   background-color: black;
-  padding: 30px 32px 0 32px;
   transition: 0.2s;
+  padding: 16px 16px;
+
+  @screen xl {
+    padding: 30px 32px 0 32px;
+
+  }
 
   &-wrapper {
-    @apply grid grid-cols-12 gap-5;
+    @apply grid grid-cols-4;
+
+    @screen xl {
+      @apply grid-cols-12 gap-5;
+    }
 
     .less {
       @apply col-start-12 flex justify-end;
@@ -230,23 +239,38 @@ nav {
     }
 
     .navlinks {
-      @apply col-start-5 col-span-4;
-      /* height: 100%; */
-      padding-top: 170px;
+      @apply col-start-2 col-span-3;
       font-family: 'gb';
+      padding-top: 130px;
+
+      @screen xl {
+        @apply col-start-5 col-span-4;
+        padding-top: 170px;
+      }
 
       li {
         @apply relative;
-        font-size: 170px;
         color: white;
-        line-height: 150px;
         cursor: pointer;
+        font-size: 100px;
+        line-height: 95px;
+
+        @screen md {
+          line-height: 125px;
+          font-size: 130px;
+        }
+
+        @screen xl {
+          font-size: 170px;
+          line-height: 150px;
+        }
 
         &.active {
           color: #FF5835 !important;
 
           .svg {
-            width: 100%;
+            width: 140%;
+
           }
         }
 
@@ -255,8 +279,9 @@ nav {
         }
 
         .navlinks-content {
-          @apply flex;
+          @apply flex relative;
           overflow: hidden;
+          /* border: 1px solid red; */
 
           span {
             @apply block;
@@ -267,11 +292,31 @@ nav {
         .svg {
           @apply absolute;
           left: -20%;
-          top: 20%;
+          top: 5%;
           overflow: hidden;
           width: 0;
           transition: all 0.2s;
 
+          @screen md {
+            left: -10%;
+          }
+
+          @screen xl {
+            left: -10%;
+            top: 20%;
+          }
+
+          svg {
+            width: 250px;
+
+            @screen md {
+              width: 300px;
+            }
+
+            @screen xl {
+              width: 420px;
+            }
+          }
         }
       }
     }
