@@ -137,14 +137,6 @@ function leaveNavlinks(e, c, p) {
                 <DisplayNavlinkActive />
               </div>
             </li>
-            <!-- <li @mouseenter="(e) => enterNavlinks(e, 'green')" @mouseleave="(e) => leaveNavlinks(e, 'green')">
-              <span class="navlinks-content">
-                <span v-for="i in `ABOUT`">{{ i.replace(/\n/gm, '&nbsp') }}</span>
-              </span>
-              <div class="svg">
-                <DisplayNavlinkActive />
-              </div>
-            </li> -->
           </ul>
         </div>
       </div>
@@ -156,8 +148,16 @@ nav {
   @apply flex justify-between items-center pl-4 pr-4 fixed;
   font-family: 'wp';
   width: 100%;
-  padding: 30px 32px 0 32px;
   z-index: 1000;
+
+  @screen md {
+    padding: 30px 8px;
+  }
+
+  @screen xl {
+    padding: 30px 32px 0 32px;
+
+  }
 }
 
 .wrapper {
