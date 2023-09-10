@@ -166,6 +166,7 @@ nav {
     @apply flex justify-center items-center;
     opacity: 0;
     font-size: 25px;
+    color: #1f0d09;
 
     @screen md {
       font-size: 30px;
@@ -194,6 +195,7 @@ nav {
   opacity: 0;
   cursor: pointer;
   font-size: 20px;
+  color: #1f0d09;
 
   @screen md {
     font-size: 25px;

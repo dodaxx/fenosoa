@@ -123,6 +123,7 @@ onMounted(async () => {
       .text {
         position: relative;
         background-color: #FF5835;
+        color: #1f0d09;
         border-bottom-right-radius: 16px;
         border-bottom-left-radius: 16px;
         padding: 0 12px;
@@ -188,7 +189,7 @@ onMounted(async () => {
             }
 
             @screen 2xl {
-              left: -3.2%;
+              left: -3%;
               top: 16%;
             }
           }
@@ -218,7 +219,7 @@ onMounted(async () => {
             }
 
             @screen 2xl {
-              right: -3.2%;
+              right: -3%;
               top: 16%;
             }
           }
