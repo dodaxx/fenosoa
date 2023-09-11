@@ -105,7 +105,6 @@ onMounted(() => {
       opacity: 1,
       duration: 1,
       ease: "power4.out",
-      delay: 1,
       filter: 'blur(0px)',
       stagger: {
         amount: 0.3
@@ -123,8 +122,8 @@ onMounted(() => {
     ease: "power4.out",
     scrollTrigger: {
       trigger: modernSection,
-      start: "top 55%",
-      end: "top 55%",
+      start: "top 60%",
+      // end: "top 55%",
       toggleActions: 'play none none reverse',
     },
   })
@@ -193,8 +192,8 @@ onMounted(() => {
     </div>
     <div class="image mdm">
       <span class="mask-mdm"></span>
-      <div class="border-type-3 border-mdm"></div>
-      <div class="border-type-4 border-mdm"></div>
+      <div class="border-type-1 green border-mdm"></div>
+      <div class="border-type-2 green border-mdm"></div>
       <div class="text green">
         <p>#MAILAKA</p>
       </div>
@@ -205,11 +204,25 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .intuitive-section {
-  padding-top: 135px;
   background-color: black;
   color: white;
   height: 90vh;
   border-radius: 20px;
+  padding-top: 80px;
+
+  @screen md {
+    padding-top: 100px;
+
+  }
+
+  @screen lg {
+    padding-top: 50px;
+  }
+
+  @screen xl {
+    padding-top: 135px;
+
+  }
 }
 
 .modern {
@@ -218,10 +231,35 @@ onMounted(() => {
 }
 
 .text {
-  @apply col-start-2 col-span-5;
-  font-size: 75px;
-  line-height: 75px;
+  @apply col-span-4;
   font-family: 'sdr';
+  font-size: 5vh;
+  line-height: 5vh;
+
+  @screen md {
+    @apply col-span-8;
+    font-size: 65px;
+    line-height: 65px;
+  }
+
+  @screen lg {
+    @apply col-span-6;
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+
+  @screen xl {
+    @apply col-start-2 col-span-5;
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  @screen 2xl {
+    font-size: 75px;
+    line-height: 75px;
+  }
+
 
   p {
     .text-content {
@@ -236,9 +274,22 @@ onMounted(() => {
 }
 
 .image {
-  @apply col-start-8 col-span-4 relative;
+  @apply col-span-4 relative;
   overflow: hidden;
   height: 300px;
+
+  @screen md {
+    @apply col-span-8;
+    height: 400px;
+  }
+
+  @screen lg {
+    @apply col-start-7 col-span-6;
+  }
+
+  @screen xl {
+    @apply col-start-8 col-span-4;
+  }
 
   .border-type {
     &-1 {
@@ -251,6 +302,11 @@ onMounted(() => {
       box-shadow: -10px -10px 0 rgb(0, 0, 0);
       transform: rotate(90deg);
       z-index: 1000;
+
+      &.green {
+        box-shadow: -10px -10px 0 #4AAA99;
+
+      }
     }
 
 
@@ -258,7 +314,7 @@ onMounted(() => {
     &-2 {
       position: absolute;
       right: 0;
-      top: 65px;
+      top: 45px;
       width: 25px;
       height: 25px;
       z-index: 1000;
@@ -266,31 +322,10 @@ onMounted(() => {
       border-radius: 50%;
       box-shadow: -10px -10px 0 rgb(0, 0, 0);
       transform: rotate(90deg);
-    }
 
-    &-3 {
-      position: absolute;
-      right: 30%;
-      width: 25px;
-      height: 25px;
-      background-color: rgba(226, 153, 153, 0);
-      border-radius: 50%;
-      box-shadow: -10px -10px 0 #4AAA99;
-      transform: rotate(90deg);
-      z-index: 1000;
-    }
-
-    &-4 {
-      position: absolute;
-      right: 0;
-      top: 65px;
-      width: 25px;
-      height: 25px;
-      z-index: 1000;
-      background-color: rgba(12, 12, 12, 0);
-      border-radius: 50%;
-      box-shadow: -10px -10px 0 #4AAA99;
-      transform: rotate(90deg);
+      &.green {
+        box-shadow: -10px -10px 0 #4AAA99;
+      }
     }
   }
 
@@ -302,15 +337,34 @@ onMounted(() => {
     background-color: rgb(0, 0, 0);
     position: absolute;
     right: 0;
-    height: 50px;
     font-family: 'gb';
-    font-size: 36px;
     width: 30%;
-    height: 65px;
-    padding-left: 20px;
+    height: 45px;
     border-bottom-left-radius: 20px;
     z-index: 1000;
     color: white;
+    line-height: 40px;
+    font-size: 25px;
+    padding-left: 12px;
+
+    @screen md {
+      font-size: 45px;
+      padding-left: 20px;
+
+    }
+
+    @screen lg {
+      font-size: 32px;
+      padding-left: 12px;
+    }
+
+
+
+    @screen 2xl {
+      font-size: 36px;
+      padding-left: 20px;
+
+    }
 
     &.green {
       background-color: #4AAA99;
