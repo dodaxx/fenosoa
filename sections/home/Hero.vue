@@ -31,13 +31,22 @@ onMounted(async () => {
       scrub: 1,
     }
   })
+  gsap.to('.hero-img', {
+    filter: 'blur(5px)',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: '5% top',
+      end: '40% top',
+      scrub: 1,
+    }
+  })
 });
 
 </script>
 <template>
   <CommonAppGrid class-content="hero">
     <div class="hero-wrapper">
-      <img src="@/assets/images/Hero/hero-image.png" alt="" class="hero-img">
+      <img src="@/assets/images/Hero/hero-img.webp" alt="" class="hero-img">
       <div class="hero-title">
         <h1>
           <span class="text">
@@ -71,7 +80,7 @@ onMounted(async () => {
       padding-top: 120px;
     }
 
-    @screen xl {
+    @screen lg {
       @apply col-span-10 col-start-2 pt-28;
     }
 

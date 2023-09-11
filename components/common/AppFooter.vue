@@ -184,8 +184,20 @@ onMounted(() => {
   &-description {
     @apply flex justify-center text-center;
     font-family: 'gb';
-    font-size: 75px;
-    line-height: 75px;
+    font-size: 40px;
+    line-height: 40px;
+
+    @screen md {
+      font-size: 60px;
+      line-height: 60px;
+
+    }
+
+    @screen xl {
+      font-size: 75px;
+      line-height: 75px;
+
+    }
 
     &__content {
       @apply flex justify-center;
@@ -209,8 +221,14 @@ onMounted(() => {
   &-social {
     @apply flex justify-center text-center mt-8;
     font-family: 'sdr';
-    font-size: 50px;
-    line-height: 35px;
+    font-size: 40px;
+    line-height: 25px;
+
+    @screen xl {
+      font-size: 50px;
+      line-height: 35px;
+
+    }
 
     &__wrapper {
       @apply flex flex-col gap-5;

@@ -242,10 +242,17 @@ onMounted(() => {
     line-height: 65px;
   }
 
+  @screen lg {
+    @apply col-span-6;
+    font-size: 50px;
+    line-height: 60px;
+  }
+
+
   @screen xl {
     @apply col-start-2 col-span-5;
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 50px;
+    line-height: 50px;
   }
 
   @screen 2xl {
@@ -276,10 +283,13 @@ onMounted(() => {
     height: 400px;
   }
 
+  @screen lg {
+    @apply col-start-7 col-span-6;
+  }
+
   @screen xl {
     @apply col-start-8 col-span-4;
   }
-
 
   .border-type {
     &-1 {
@@ -343,11 +353,12 @@ onMounted(() => {
 
     }
 
-    @screen xl {
+    @screen lg {
       font-size: 32px;
       padding-left: 12px;
-
     }
+
+
 
     @screen 2xl {
       font-size: 36px;

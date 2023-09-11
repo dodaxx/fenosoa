@@ -106,7 +106,7 @@ onMounted(() => {
         </h3>
       </div>
       <div class="image">
-        <img src="@/assets/images/what/what-img.png" alt="">
+        <img src="@/assets/images/what/what-img.webp" alt="">
       </div>
     </div>
     <div class="rgt">
@@ -135,6 +135,10 @@ onMounted(() => {
 
   @screen md {
     @apply col-span-8;
+  }
+
+  @screen lg {
+    @apply col-span-12;
   }
 
   @screen xl {

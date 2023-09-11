@@ -20,10 +20,12 @@ const props = defineProps({
     @apply grid-cols-8;
   }
 
-  @screen xl {
+  @screen lg {
     @apply grid-cols-12 gap-3;
     padding: 0 16px;
   }
+
+
 
   @screen 2xl {
     @apply gap-5;
