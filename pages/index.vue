@@ -5,5 +5,5 @@
 <template>
   <HomeHero />
   <HomeWhat />
-  <!-- <HomeIntuitive /> -->
+  <HomeIntuitive />
 </template>

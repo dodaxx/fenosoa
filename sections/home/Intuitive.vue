@@ -105,7 +105,6 @@ onMounted(() => {
       opacity: 1,
       duration: 1,
       ease: "power4.out",
-      delay: 1,
       filter: 'blur(0px)',
       stagger: {
         amount: 0.3
@@ -123,8 +122,8 @@ onMounted(() => {
     ease: "power4.out",
     scrollTrigger: {
       trigger: modernSection,
-      start: "top 55%",
-      end: "top 55%",
+      start: "top 60%",
+      // end: "top 55%",
       toggleActions: 'play none none reverse',
     },
   })
@@ -209,7 +208,12 @@ onMounted(() => {
   color: white;
   height: 90vh;
   border-radius: 20px;
-  padding-top: 75px;
+  padding-top: 80px;
+
+  @screen md {
+    padding-top: 100px;
+
+  }
 
   @screen xl {
     padding-top: 135px;
@@ -223,10 +227,23 @@ onMounted(() => {
 }
 
 .text {
-  @apply col-start-2 col-span-5;
-  font-size: 75px;
-  line-height: 75px;
+  @apply col-span-4;
   font-family: 'sdr';
+  font-size: 5vh;
+  line-height: 5vh;
+
+  @screen md {
+    @apply col-span-8;
+    font-size: 65px;
+    line-height: 65px;
+  }
+
+  @screen xl {
+    @apply col-start-2 col-span-5;
+    font-size: 75px;
+    line-height: 75px;
+  }
+
 
   p {
     .text-content {
@@ -241,9 +258,19 @@ onMounted(() => {
 }
 
 .image {
-  @apply col-start-8 col-span-4 relative;
+  @apply col-span-4 relative;
   overflow: hidden;
   height: 300px;
+
+  @screen md {
+    @apply col-span-8;
+    height: 400px;
+  }
+
+  @screen xl {
+    @apply col-start-8 col-span-4;
+  }
+
 
   .border-type {
     &-1 {
@@ -292,14 +319,26 @@ onMounted(() => {
     position: absolute;
     right: 0;
     font-family: 'gb';
-    font-size: 36px;
     width: 30%;
     height: 45px;
-    padding-left: 20px;
     border-bottom-left-radius: 20px;
     z-index: 1000;
     color: white;
     line-height: 40px;
+    font-size: 25px;
+    padding-left: 12px;
+
+    @screen md {
+      font-size: 45px;
+      padding-left: 20px;
+
+    }
+
+    @screen xl {
+      font-size: 36px;
+      padding-left: 20px;
+
+    }
 
     &.green {
       background-color: #4AAA99;
