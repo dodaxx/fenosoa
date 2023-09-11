@@ -60,6 +60,7 @@ onMounted(async () => {
   background-color: #FF5835;
 
   &-wrapper {
+    @apply col-span-4;
     @apply relative;
     height: 100vh;
     padding-top: 75px;

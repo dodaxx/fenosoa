@@ -131,12 +131,30 @@ onMounted(() => {
 }
 
 .lft {
-  @apply col-start-2 col-span-4;
+  @apply col-span-4;
+
+  @screen md {
+    @apply col-span-8;
+  }
+
+  @screen xl {
+    @apply col-start-2 col-span-4;
+  }
 
   .title {
-    font-size: 55px;
     font-family: 'ns';
-    line-height: 60px;
+    font-size: 30px;
+    line-height: 30px;
+
+    @screen md {
+      font-size: 40px;
+      line-height: 45px;
+    }
+
+    @screen xl {
+      font-size: 55px;
+      line-height: 60px;
+    }
 
     h3 {
 
@@ -145,6 +163,7 @@ onMounted(() => {
         @apply flex;
         overflow: hidden;
         width: 100%;
+
 
         span {
           @apply block;
@@ -159,26 +178,40 @@ onMounted(() => {
     opacity: 0;
 
     img {
-      border-radius: 20px;
       height: 100%;
       width: 100%;
       object-fit: contain;
+      border-radius: 8px;
+
+      @screen xl {
+        border-radius: 20px;
+
+      }
     }
   }
 }
 
 .rgt {
-  @apply col-span-7 flex items-center mt-32;
+  @apply col-span-4 hidden;
   font-family: 'wp';
-  line-height: 75px;
   color: #FF5835;
 
+
+  @screen xl {
+    @apply col-span-7 flex items-center mt-32;
+    line-height: 75px;
+  }
+
   .what {
-    @apply relative -left-40 flex;
-    font-size: 250px;
-    background-color: transparent;
-    line-height: 175px;
+    @apply relative flex;
     overflow: hidden;
+    background-color: transparent;
+
+    @screen xl {
+      @apply relative -left-40;
+      font-size: 250px;
+      line-height: 175px;
+    }
 
     span {
       @apply block;
@@ -188,11 +221,14 @@ onMounted(() => {
 
   .you {
     @apply flex relative items-end;
-    font-size: 125px;
-    line-height: 115px;
     overflow: hidden;
-    padding-left: 36px;
-    padding-bottom: 20px;
+
+    @screen xl {
+      font-size: 125px;
+      line-height: 115px;
+      padding-left: 36px;
+      padding-bottom: 20px;
+    }
 
     .italic {
       @apply relative;

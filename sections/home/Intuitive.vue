@@ -205,11 +205,16 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .intuitive-section {
-  padding-top: 135px;
   background-color: black;
   color: white;
   height: 90vh;
   border-radius: 20px;
+  padding-top: 75px;
+
+  @screen xl {
+    padding-top: 135px;
+
+  }
 }
 
 .modern {

@@ -13,7 +13,7 @@ const props = defineProps({
 <style scoped lang="scss">
 .app-grid {
 
-  @apply grid-cols-2 gap-2;
+  @apply grid grid-cols-4 gap-2;
   padding: 0 4px;
 
   @screen md {

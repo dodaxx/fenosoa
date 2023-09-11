@@ -4,6 +4,6 @@
 </script>
 <template>
   <HomeHero />
-  <!-- <HomeWhat /> -->
+  <HomeWhat />
   <!-- <HomeIntuitive /> -->
 </template>
