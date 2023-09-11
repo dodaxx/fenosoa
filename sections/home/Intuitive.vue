@@ -215,6 +215,10 @@ onMounted(() => {
 
   }
 
+  @screen lg {
+    padding-top: 50px;
+  }
+
   @screen xl {
     padding-top: 135px;
 
@@ -240,6 +244,11 @@ onMounted(() => {
 
   @screen xl {
     @apply col-start-2 col-span-5;
+    font-size: 60px;
+    line-height: 60px;
+  }
+
+  @screen 2xl {
     font-size: 75px;
     line-height: 75px;
   }
@@ -335,6 +344,12 @@ onMounted(() => {
     }
 
     @screen xl {
+      font-size: 32px;
+      padding-left: 12px;
+
+    }
+
+    @screen 2xl {
       font-size: 36px;
       padding-left: 20px;
 

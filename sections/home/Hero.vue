@@ -27,8 +27,8 @@ onMounted(async () => {
     scrollTrigger: {
       trigger: '.hero',
       start: '5% top',
-      end: '25% top',
-      scrub: 1
+      end: '40% top',
+      scrub: 1,
     }
   })
 });
@@ -57,6 +57,7 @@ onMounted(async () => {
 </template>
 <style lang="scss" scoped>
 .hero {
+  /* background-color: #ffffff; */
   background-color: #FF5835;
 
   &-wrapper {
@@ -154,6 +155,11 @@ onMounted(async () => {
               top: 12.6%;
             }
 
+            @screen lg {
+              left: -3%;
+
+            }
+
             @screen xl {
               left: -2.8%;
               top: 17%;
@@ -182,6 +188,11 @@ onMounted(async () => {
               height: 25px;
               left: -4.6%;
               top: 16%;
+            }
+
+            @screen lg {
+              left: -4%;
+
             }
 
             @screen xl {
@@ -214,6 +225,11 @@ onMounted(async () => {
               top: 16%;
             }
 
+            @screen lg {
+              right: -4%;
+
+            }
+
             @screen xl {
               right: -3.6%;
               top: 16%;
@@ -242,6 +258,11 @@ onMounted(async () => {
               height: 25px;
               right: -3.7%;
               top: 12.6%;
+            }
+
+            @screen lg {
+              right: -3%;
+
             }
 
             @screen xl {

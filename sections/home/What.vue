@@ -20,7 +20,7 @@ onMounted(() => {
       trigger: sectionWhat,
       start: "top 45%",
       end: "top 45%",
-      scrub: 2,
+      scrub: 1,
     },
   });
   tl.fromTo([loseContent, todayContent], {
