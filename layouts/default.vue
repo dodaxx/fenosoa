@@ -1,10 +1,10 @@
 <template>
   <div>
-    <CommonAppProgress />
-    <CommonAppNavbar />
-    <CommonAppCursor />
+    <LazyCommonAppProgress />
+    <LazyCommonAppNavbar />
+    <LazyCommonAppCursor />
     <slot />
-    <CommonAppFooter />
+    <LazyCommonAppFooter />
 
   </div>
 </template>
