@@ -106,7 +106,7 @@ onMounted(() => {
         </h3>
       </div>
       <div class="image">
-        <img src="@/assets/images/what/what-img.webp" alt="">
+        <img src="@/assets/images/what/what-img.webp" alt="what you need?">
       </div>
     </div>
     <div class="rgt">

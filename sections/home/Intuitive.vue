@@ -170,7 +170,7 @@ onMounted(() => {
       <div class="text">
         <p>#FERMEAINA</p>
       </div>
-      <img src="@/assets/images/intuitive/ferme-aina.png" alt="">
+      <img src="@/assets/images/intuitive/ferme-aina.png" alt="ferme aina site web" loading="lazy">
     </div>
   </CommonAppGrid>
   <CommonAppGrid class-content="intuitive-section modern">
@@ -197,7 +197,7 @@ onMounted(() => {
       <div class="text green">
         <p>#MAILAKA</p>
       </div>
-      <img src="@/assets/images/intuitive/mailaka.png" alt="">
+      <img src="@/assets/images/intuitive/mailaka.png" alt="mailaka siteweb" loading="lazy">
     </div>
   </CommonAppGrid>
 </template>

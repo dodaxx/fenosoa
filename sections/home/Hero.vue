@@ -48,7 +48,7 @@ onMounted(async () => {
 <template>
   <CommonAppGrid class-content="hero">
     <div class="hero-wrapper">
-      <img src="@/assets/images/Hero/hero-img.webp" alt="" class="hero-img">
+      <img src="@/assets/images/Hero/hero-img.webp" alt="hero fenosoa" class="hero-img" loading="lazy">
       <div class="hero-title">
         <h1>
           <span class="text">

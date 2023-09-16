@@ -35,35 +35,43 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 .cursor {
-  @apply fixed flex justify-center items-center;
-  margin-top: -45px;
-  margin-left: -40px;
-  width: 100px;
-  height: 100px;
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 50%;
-  z-index: 1000;
-  pointer-events: none;
+  @apply hidden;
+
+  @screen xl {
+    @apply fixed flex justify-center items-center;
+    margin-top: -45px;
+    margin-left: -40px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    z-index: 1000;
+    pointer-events: none;
+  }
 
   &--full {
-    margin-top: -25px;
-    margin-left: -20px;
-    background-color: rgb(255, 255, 255);
-    width: 45px;
-    height: 45px;
-    transition: 0.2s;
-    animation: bounce 1s infinite;
-    mix-blend-mode: exclusion;
+    @screen xl {
+      margin-top: -25px;
+      margin-left: -20px;
+      background-color: rgb(255, 255, 255);
+      width: 45px;
+      height: 45px;
+      transition: 0.2s;
+      animation: bounce 1s infinite;
+      mix-blend-mode: exclusion;
+    }
   }
 
   p {
-    transform: translateY(4px);
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
-    font-family: 'gb';
-    text-align: center;
-    line-height: 18px;
+    @screen xl {
+      transform: translateY(4px);
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+      font-family: 'gb';
+      text-align: center;
+      line-height: 18px;
+    }
   }
 }
 
