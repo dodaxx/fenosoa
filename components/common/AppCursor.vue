@@ -57,10 +57,13 @@ onMounted(() => {
   }
 
   p {
+    transform: translateY(4px);
     font-weight: bold;
     font-size: 20px;
     color: white;
     font-family: 'gb';
+    text-align: center;
+    line-height: 18px;
   }
 }
 
