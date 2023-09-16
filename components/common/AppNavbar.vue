@@ -107,7 +107,7 @@ function leaveNavlinks(e, c, p) {
 };
 
 function handleMouseMenu(b) {
-  b ? store.handleChangeFormCursor('full') : store.handleChangeFormCursor('');
+  b ? store.handleChangeFormTextCursor("full", "") : store.handleChangeFormTextCursor("", "Wheel scroll");
 }
 
 </script>

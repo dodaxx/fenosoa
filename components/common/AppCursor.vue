@@ -9,7 +9,7 @@ const mouseY = ref(0);
 
 onMounted(() => {
   gsap.to({}, {
-    duration: 0.016,
+    duration: 0.018,
     repeat: -1,
     onRepeat: function () {
       gsap.set('.cursor', {
@@ -29,20 +29,21 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div :class="`cursor cursor--${store.formCursor}`"></div>
+  <div :class="`cursor cursor--${store.formCursor}`">
+    <p>{{ store.textCusor }}</p>
+  </div>
 </template>
 <style lang="scss" scoped>
 .cursor {
-  @apply fixed;
+  @apply fixed flex justify-center items-center;
   margin-top: -45px;
   margin-left: -40px;
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 50%;
   z-index: 1000;
   pointer-events: none;
-  transition: 0.1s;
 
   &--full {
     margin-top: -25px;
@@ -53,6 +54,13 @@ onMounted(() => {
     transition: 0.2s;
     animation: bounce 1s infinite;
     mix-blend-mode: exclusion;
+  }
+
+  p {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    font-family: 'gb';
   }
 }
 
