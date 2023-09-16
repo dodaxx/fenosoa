@@ -63,15 +63,20 @@ onMounted(() => {
   50%,
   80%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
   }
 
   40% {
-    transform: translateY(-30px);
+    transform: translateY(-30px) scale(1.1, 0.9);
   }
 
   60% {
-    transform: translateY(-15px);
+    transform: translateY(-15px) scale(0.95, 1.05);
+    ;
   }
 }
 </style>
