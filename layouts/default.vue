@@ -1,5 +1,6 @@
 <template>
   <div>
+    <CommonAppProgress />
     <CommonAppNavbar />
     <CommonAppCursor />
     <slot />
