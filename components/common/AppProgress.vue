@@ -12,7 +12,7 @@
   font-family: 'gb';
   padding: 6px 10px;
   animation: bounce 1s infinite;
-  z-index: 1200;
+  z-index: 1000;
   width: 100%;
 
   p {

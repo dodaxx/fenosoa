@@ -154,7 +154,7 @@ nav {
   @apply flex justify-between items-center fixed;
   font-family: 'wp';
   width: 100%;
-  z-index: 1000;
+  z-index: 1200;
   padding: 10px 4px;
 
   @screen md {
