@@ -14,8 +14,8 @@ onMounted(async () => {
     duration: 0.9,
     ease: 'power4.out',
     delay: 0.5
-  }).from('.hero-title h1 .text .content', {
-    opacity: 0,
+  }).to('.hero-title h1 .text .content', {
+    opacity: 1,
     stagger: {
       amount: 1
     },
@@ -165,6 +165,10 @@ onMounted(async () => {
         @screen md {
           padding: 0 32px;
 
+        }
+
+        .content {
+          opacity: 0;
         }
 
         .border {
