@@ -3,7 +3,7 @@
 
 </script>
 <template>
-  <HomeHero />
-  <HomeWhat />
-  <HomeIntuitive />
+  <LazyHomeHero />
+  <LazyHomeWhat />
+  <LazyHomeIntuitive />
 </template>
