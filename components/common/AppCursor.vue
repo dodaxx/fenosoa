@@ -45,7 +45,7 @@ onMounted(() => {
     height: 100px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 50%;
-    z-index: 1000;
+    z-index: 1200;
     pointer-events: none;
   }
 
