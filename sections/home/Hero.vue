@@ -1,11 +1,10 @@
 <script setup>
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 onMounted(async () => {
   const tl = gsap.timeline();
-  const body = document.querySelector('body');
   tl.to('.hero-img', {
     opacity: 1,
     delay: 1,
@@ -20,7 +19,7 @@ onMounted(async () => {
     stagger: {
       amount: 1
     },
-  })
+  });
 
   gsap.to('.hero-title', {
     y: -300,
@@ -30,7 +29,7 @@ onMounted(async () => {
       end: '40% top',
       scrub: 1,
     }
-  })
+  });
   gsap.to('.hero-img', {
     filter: 'blur(5px)',
     scrollTrigger: {
@@ -39,8 +38,11 @@ onMounted(async () => {
       end: '40% top',
       scrub: 1,
     }
-  })
+  });
+
 });
+
+
 
 </script>
 <template>
@@ -68,9 +70,31 @@ onMounted(async () => {
 .hero {
   /* background-color: #ffffff; */
   background-color: #FF5835;
+  font-family: 'gb';
+
+  &-stacks {
+    @apply absolute bottom-0 flex;
+    overflow: hidden;
+    border: 1px solid rgb(111, 0, 255);
+
+    .wrapper {
+      @apply flex gap-20;
+    }
+
+    .stack {
+      font-size: 70px;
+
+      &:nth-child(odd) {
+        -webkit-text-stroke: 1px #1f0d09;
+        text-shadow: none;
+        color: transparent;
+
+      }
+    }
+  }
 
   &-wrapper {
-    @apply col-span-4;
+    @apply col-span-4 relative;
     @apply relative;
     height: 100vh;
     padding-top: 75px;
@@ -106,7 +130,6 @@ onMounted(async () => {
 
     h1 {
       @apply text-center;
-      font-family: 'gb';
       transform: translateY(-300px);
       font-size: 45px;
       line-height: 42px;

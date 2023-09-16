@@ -1,8 +1,10 @@
 <script setup>
 import { gsap } from 'gsap';
+import { useCursor } from '~/store/useCursor';
 
 const tl = gsap.timeline();
 const route = useRoute();
+const store = useCursor();
 
 const navlinksData = [
   {
@@ -104,6 +106,9 @@ function leaveNavlinks(e, c, p) {
   }
 };
 
+function handleMouseMenu(b) {
+  b ? store.handleChangeFormCursor('full') : store.handleChangeFormCursor('');
+}
 
 </script>
 <template>
@@ -115,7 +120,8 @@ function leaveNavlinks(e, c, p) {
         <span v-for="t in 'XX'">{{ t }}</span>
       </div>
     </div>
-    <div class="menu" @click="handleToggleMenu(true)">
+    <div class="menu" @click="handleToggleMenu(true)" @mouseenter="handleMouseMenu(true)"
+      @mouseleave="handleMouseMenu(false)">
       <span v-for="t in 'More'">{{ t }}</span>
     </div>
     <div class="links ">
@@ -191,9 +197,7 @@ nav {
 }
 
 .menu {
-  /* @apply col-start-12; */
   opacity: 0;
-  cursor: pointer;
   font-size: 20px;
   color: #1f0d09;
 

@@ -21,4 +21,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ["gsap"],
   },
+  modules: [
+    // ...
+    '@pinia/nuxt',
+  ],
+
 })

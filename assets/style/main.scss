@@ -45,6 +45,7 @@
 body {
   background-color: #000000;
   overflow: visible;
+  cursor: none;
 
   &.wait {
     overflow: hidden;
