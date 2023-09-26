@@ -116,6 +116,8 @@ onMounted(async () => {
       border-radius: 8px;
       opacity: 0;
       top: 75px;
+      width: 100%;
+      height: 100%;
 
       @screen md {
         top: 125px;
