@@ -6,21 +6,21 @@
   font-family: 'wp';
   src: url('@/assets/fonts/GT-Walsheim-Pro-Black.woff') format('woff');
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'sd';
   src: url('@/assets/fonts/SaolDisplay-SemiboldItalic.woff') format('woff');
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'sdr';
   src: url('@/assets/fonts/SaolDisplay-Regular.woff') format('woff');
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 
@@ -28,14 +28,14 @@
   font-family: 'ns';
   src: url('@/assets/fonts/Newsreader_14pt-SemiBold.woff') format('woff');
   font-style: italic;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
   font-family: 'gb';
   src: url('@/assets/fonts/gravity-bold.woff') format('woff');
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 :root {
